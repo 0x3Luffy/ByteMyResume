@@ -1,5 +1,6 @@
 import Header from "@/components/header"
 import Footer from "@/components/footer"
+import BannerAd from "@/components/ads/banner-ad"
 
 export default function AboutPage() {
   return (
@@ -13,6 +14,9 @@ export default function AboutPage() {
             <p className="text-xl text-gray-300">Helping job seekers navigate the ATS maze since 2023</p>
           </div>
 
+          {/* Banner Ad 1: After Header */}
+          <BannerAd />
+
           <div className="bg-black/40 backdrop-blur-sm rounded-xl p-8 border border-white/10 shadow-lg mb-12">
             <h2 className="text-2xl font-bold text-white mb-4">Our Mission</h2>
             <p className="text-gray-300 mb-6">
@@ -25,6 +29,9 @@ export default function AboutPage() {
               insights and recommendations to help you land more interviews and ultimately find your dream job.
             </p>
           </div>
+
+          {/* Banner Ad 2: Between Sections */}
+          <BannerAd />
 
           <div className="bg-black/40 backdrop-blur-sm rounded-xl p-8 border border-white/10 shadow-lg mb-12">
             <h2 className="text-2xl font-bold text-white mb-4">Our Story</h2>
@@ -64,6 +71,9 @@ export default function AboutPage() {
               delete it at any time.
             </p>
           </div>
+
+          {/* Banner Ad 3: Before Footer */}
+          <BannerAd />
         </div>
       </main>
 

@@ -1,6 +1,7 @@
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import ContactForm from "@/components/contact-form"
+import BannerAd from "@/components/ads/banner-ad"
 
 export default function ContactPage() {
   return (
@@ -14,7 +15,13 @@ export default function ContactPage() {
             Have questions about our ATS scoring system? We're here to help you land your dream job.
           </p>
 
+          {/* Banner Ad 1: Before Contact Form */}
+          <BannerAd />
+
           <ContactForm />
+
+          {/* Banner Ad 2: After Contact Form */}
+          <BannerAd />
 
           <div className="mt-16 grid gap-8 md:grid-cols-3">
             <div className="bg-black/40 backdrop-blur-sm rounded-xl p-6 border border-white/10">

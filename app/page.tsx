@@ -3,6 +3,7 @@ import Footer from "@/components/footer"
 import HeroSection from "@/components/hero-section"
 import HowItWorks from "@/components/how-it-works"
 import ResumeSection from "@/components/resume-section"
+import BannerAd from "@/components/ads/banner-ad"
 
 export default function Home() {
   return (
@@ -11,8 +12,19 @@ export default function Home() {
 
       <main>
         <HeroSection />
+
+        {/* Banner Ad 1: After Hero Section */}
+        <BannerAd />
+
         <ResumeSection />
+
+        {/* Banner Ad 2: Between Resume Section and How It Works */}
+        <BannerAd />
+
         <HowItWorks />
+
+        {/* Banner Ad 3: After How It Works */}
+        <BannerAd />
       </main>
 
       <Footer />

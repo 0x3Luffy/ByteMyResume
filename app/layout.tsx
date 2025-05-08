@@ -4,6 +4,7 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import { ThemeProvider } from "@/components/theme-provider"
 import SEO from "@/components/seo/seo"
+import Script from "next/script"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -76,11 +77,22 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <SEO />
+        {/* Popunder Ad - placed before closing head tag */}
+        <Script
+          type="text/javascript"
+          src="//pl26589903.profitableratecpm.com/8e/8f/90/8e8f90a496b922f458171fe3350f1d49.js"
+        />
       </head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           {children}
         </ThemeProvider>
+
+        {/* Social Bar Ad - placed before closing body tag */}
+        <Script
+          type="text/javascript"
+          src="//pl26589942.profitableratecpm.com/e4/bf/f7/e4bff7bda05056069834c0eb7f7178d9.js"
+        />
       </body>
     </html>
   )

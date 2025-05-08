@@ -1,5 +1,6 @@
 import Header from "@/components/header"
 import Footer from "@/components/footer"
+import BannerAd from "@/components/ads/banner-ad"
 
 export default function TermsPage() {
   return (
@@ -12,6 +13,9 @@ export default function TermsPage() {
             <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6">Terms of Service</h1>
             <p className="text-gray-300">Last updated: May 8, 2025</p>
           </div>
+
+          {/* Banner Ad 1: After Header */}
+          <BannerAd />
 
           <div className="bg-black/40 backdrop-blur-sm rounded-xl p-8 border border-white/10 shadow-lg space-y-8">
             <section>
@@ -26,6 +30,9 @@ export default function TermsPage() {
                 Terms, you must not access or use the Service.
               </p>
             </section>
+
+            {/* Banner Ad 2: Between Sections */}
+            <BannerAd />
 
             <section>
               <h2 className="text-2xl font-bold text-white mb-4">2. Eligibility</h2>
@@ -54,6 +61,9 @@ export default function TermsPage() {
                 aware of any breach of security or unauthorized use of your account.
               </p>
             </section>
+
+            {/* Banner Ad 3: Between Sections */}
+            <BannerAd />
 
             <section>
               <h2 className="text-2xl font-bold text-white mb-4">4. Intellectual Property</h2>

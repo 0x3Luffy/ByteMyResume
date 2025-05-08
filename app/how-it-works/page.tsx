@@ -2,6 +2,7 @@ import Header from "@/components/header"
 import Footer from "@/components/footer"
 import HowItWorks from "@/components/how-it-works"
 import { Button } from "@/components/ui/button"
+import BannerAd from "@/components/ads/banner-ad"
 
 export default function HowItWorksPage() {
   return (
@@ -18,7 +19,13 @@ export default function HowItWorksPage() {
             </p>
           </div>
 
+          {/* Banner Ad 1: After Header */}
+          <BannerAd />
+
           <HowItWorks />
+
+          {/* Banner Ad 2: After How It Works Component */}
+          <BannerAd />
 
           <div className="mt-20 space-y-16">
             <section className="bg-black/40 backdrop-blur-sm rounded-xl p-8 border border-white/10 shadow-lg">
@@ -131,6 +138,9 @@ export default function HowItWorksPage() {
               </div>
             </section>
 
+            {/* Banner Ad 3: Between Sections */}
+            <BannerAd />
+
             <section className="bg-black/40 backdrop-blur-sm rounded-xl p-8 border border-white/10 shadow-lg">
               <div className="grid md:grid-cols-2 gap-8 items-center">
                 <div className="order-2 md:order-1">
@@ -221,6 +231,9 @@ export default function HowItWorksPage() {
               </div>
             </section>
           </div>
+
+          {/* Banner Ad 4: Before Footer */}
+          <BannerAd />
         </div>
       </main>
 

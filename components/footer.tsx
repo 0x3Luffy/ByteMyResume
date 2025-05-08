@@ -1,9 +1,13 @@
 import Link from "next/link"
+import BannerAd from "@/components/ads/banner-ad"
 
 export default function Footer() {
   return (
     <footer className="relative mt-0 border-t border-white/10 bg-gradient-to-b from-purple-900/10 to-black">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Banner Ad in Footer - appears on all pages */}
+        <BannerAd />
+
         <nav className="py-8">
           {/* Primary Navigation */}
           <ul className="flex flex-wrap justify-center gap-x-8 gap-y-3 mb-4">

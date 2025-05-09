@@ -3,6 +3,7 @@ import Footer from "@/components/footer"
 import HeroSection from "@/components/hero-section"
 import HowItWorks from "@/components/how-it-works"
 import ResumeSection from "@/components/resume-section"
+import ResumeSection from "@/components/KeywordRichContent"
 import BannerAd from "@/components/ads/banner-ad"
 
 export default function Home() {
@@ -25,6 +26,8 @@ export default function Home() {
 
         {/* Banner Ad 3: After How It Works */}
         <BannerAd />
+
+        <KeywordRichContent/>
       </main>
 
       <Footer />

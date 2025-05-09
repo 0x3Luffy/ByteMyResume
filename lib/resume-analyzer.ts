@@ -427,11 +427,19 @@ export async function analyzeResume(resumeText: string): Promise<{
   // Penalty for very short resumes (likely incomplete)
   const lengthPenalty = resumeText.length < 1500 ? 15 : 0
 
-  // Calculate final score (cap at 90 as requested)
-  let finalScore = Math.min(Math.round(baseScore + matchBonus - lengthPenalty), 90)
+  // Calculate raw score
+  const rawScore = Math.round(baseScore + matchBonus - lengthPenalty)
 
-  // Ensure score is at least 30 (even for poor matches)
-  finalScore = Math.max(finalScore, 30)
+  // NEW: Ensure minimum score is between 70-73 (randomly chosen for natural variation)
+  const minScore = Math.floor(Math.random() * 4) + 70 // Random number between 70-73
+
+  // NEW: Scale the score between minScore and 95
+  let finalScore = minScore
+  if (rawScore > 30) {
+    // Map the raw score (30-100) to our new range (minScore-95)
+    const scaleFactor = (95 - minScore) / 70 // 70 is the range of raw scores (100-30)
+    finalScore = Math.min(Math.round(minScore + (rawScore - 30) * scaleFactor), 95)
+  }
 
   // Add more context to the analysis
   const contextualFeedback = {
@@ -451,30 +459,30 @@ export async function analyzeResume(resumeText: string): Promise<{
     contextualFeedback.strengths.push(`Well-aligned with ${bestCategoryMatch} roles`)
   }
 
-  // Determine weaknesses
+  // Determine weaknesses - modified to be more encouraging even for weak resumes
   if (matchedTags.length < 5) {
-    contextualFeedback.weaknesses.push("Limited technical skill representation")
+    contextualFeedback.weaknesses.push("Could benefit from more technical skill keywords")
   }
   if (resumeText.length < 1500) {
-    contextualFeedback.weaknesses.push("Resume may be too brief for ATS systems")
+    contextualFeedback.weaknesses.push("Consider adding more detail for better ATS recognition")
   }
   if (bestCategoryScore < 0.4) {
-    contextualFeedback.weaknesses.push("Not strongly aligned with any specific job category")
+    contextualFeedback.weaknesses.push("Adding more industry-specific terminology would help")
   }
 
-  // Determine job fit based on expertise areas
+  // Determine job fit based on expertise areas - modified to be more positive
   if (expertiseAreas.length > 0) {
     if (bestCategoryScore > 0.7) {
       contextualFeedback.jobFit = `Excellent match for ${expertiseAreas.join(" and ")} positions`
     } else if (bestCategoryScore > 0.5) {
       contextualFeedback.jobFit = `Good match for ${expertiseAreas.join(" and ")} positions`
     } else if (bestCategoryScore > 0.3) {
-      contextualFeedback.jobFit = `Moderate match for ${expertiseAreas.join(" and ")} positions`
+      contextualFeedback.jobFit = `Solid match for ${expertiseAreas.join(" and ")} positions with some enhancements`
     } else {
-      contextualFeedback.jobFit = "Consider refining your resume for your specific expertise areas"
+      contextualFeedback.jobFit = `Shows potential for ${expertiseAreas.join(" and ")} positions with targeted improvements`
     }
   } else {
-    contextualFeedback.jobFit = "Consider adding more industry-specific keywords to your resume"
+    contextualFeedback.jobFit = "Adding industry-specific keywords will help target your preferred roles"
   }
 
   // Simulate processing delay
